@@ -233,6 +233,12 @@ export default function App() {
       return snapTargets.findIndex((id) => {
         const section = document.getElementById(id);
         if (!section) return false;
+
+        if (id === "manifesto") {
+          const sectionBottom = section.offsetTop + section.offsetHeight;
+          return window.scrollY < sectionBottom && window.scrollY + window.innerHeight > section.offsetTop;
+        }
+
         return middle >= section.offsetTop && middle < section.offsetTop + section.offsetHeight;
       });
     };
@@ -383,7 +389,19 @@ export default function App() {
         <div className="split-copy manifesto-copy">
           <h2>Manifesto</h2>
           <p>Ideas <span>to</span> Action <span>to</span> Change</p>
-          <ChevronDown className="bounce" size={28} />
+          <a
+            className="manifesto-next"
+            href="#promises"
+            aria-label="Continue to promises"
+            onClick={(event) => {
+              const section = document.getElementById("promises");
+              if (!section) return;
+              event.preventDefault();
+              section.scrollIntoView({ behavior: "smooth", block: "start" });
+            }}
+          >
+            <ChevronDown className="bounce" size={28} />
+          </a>
         </div>
       </section>
 

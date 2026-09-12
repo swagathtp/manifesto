@@ -413,6 +413,11 @@ img {
 }
 
 .split-copy .bounce {
+  color: var(--red);
+}
+
+.manifesto-next {
+  display: inline-flex;
   margin-top: 8px;
   color: var(--red);
 }
