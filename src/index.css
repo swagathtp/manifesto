@@ -10,7 +10,7 @@
     linear-gradient(155deg, #fff 0%, #fff7f7 38%, #ffe1e1 100%);
   font-family: "Arial Black", Impact, system-ui, sans-serif;
   color: var(--ink);
-  background: #050505;
+  background: linear-gradient(145deg, #b2183c 0%, #e34f70 62%, #f7c4cf 100%);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -95,13 +95,13 @@ img {
 .site-header-light {
   position: absolute;
   inset: 0 0 auto;
-  padding: 16px 18px;
+  padding: 10px 12px;
 }
 
 .logo {
   display: inline-flex;
-  width: 82px;
-  min-height: 44px;
+  width: 30px;
+  min-height: 18px;
   align-items: center;
   justify-content: center;
   transform: rotate(-2deg);
@@ -598,10 +598,40 @@ img {
   text-align: center;
 }
 
+.vote-poster::before,
+.vote-poster::after {
+  content: "";
+  position: absolute;
+  inset: -12% -8%;
+  z-index: 1;
+  pointer-events: none;
+  background-repeat: no-repeat;
+}
+
+.vote-poster::before {
+  background-image:
+    radial-gradient(ellipse at 12% 18%, rgba(255, 235, 241, 0.9) 0 5px, transparent 6px),
+    radial-gradient(ellipse at 29% 64%, rgba(255, 220, 230, 0.82) 0 4px, transparent 5px),
+    radial-gradient(ellipse at 72% 24%, rgba(255, 242, 246, 0.86) 0 5px, transparent 6px),
+    radial-gradient(ellipse at 88% 72%, rgba(255, 211, 224, 0.8) 0 4px, transparent 5px),
+    radial-gradient(ellipse at 52% 84%, rgba(255, 235, 241, 0.76) 0 3px, transparent 4px);
+  animation: blossomDrift 13s ease-in-out infinite alternate;
+}
+
+.vote-poster::after {
+  opacity: 0.72;
+  background-image:
+    radial-gradient(ellipse at 20% 42%, rgba(255, 201, 218, 0.82) 0 3px, transparent 4px),
+    radial-gradient(ellipse at 46% 12%, rgba(255, 244, 247, 0.8) 0 4px, transparent 5px),
+    radial-gradient(ellipse at 64% 66%, rgba(255, 214, 226, 0.84) 0 5px, transparent 6px),
+    radial-gradient(ellipse at 94% 34%, rgba(255, 239, 244, 0.8) 0 3px, transparent 4px);
+  animation: blossomDrift 17s ease-in-out -5s infinite alternate-reverse;
+}
+
 .finale-stage {
   background:
-    radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.16), transparent 13rem),
-    linear-gradient(128deg, #050505 0 24%, #570306 43%, var(--red) 68%, #080404 100%);
+    radial-gradient(circle at 68% 22%, rgba(255, 255, 255, 0.68), transparent 10rem),
+    linear-gradient(145deg, #9f1239 0%, #d92f5b 54%, #f08aa2 100%);
 }
 
 .finale-flag {
@@ -627,8 +657,8 @@ img {
 
 .finale-scrim {
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.18) 52%, rgba(0, 0, 0, 0.62)),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.18) 48%, rgba(0, 0, 0, 0.86) 100%);
+    linear-gradient(90deg, rgba(103, 5, 31, 0.18), rgba(255, 255, 255, 0.03) 52%, rgba(255, 255, 255, 0.16)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 235, 241, 0.08) 48%, rgba(255, 255, 255, 0.2) 100%);
 }
 
 .vote-copy,
@@ -646,11 +676,13 @@ img {
 
 .finale-main-logo {
   /* width: min(86vw, 760px); */
-  max-height: 105svh;
+  max-height: 103svh;
   object-fit: contain;
-  margin-left: 44px;
+  margin-left: 31px;
+  margin-top: -297px;
+  opacity: 0;
   filter:
-    drop-shadow(0 16px 0 rgba(0, 0, 0, 0.28))
+    drop-shadow(0 5px 0 rgba(0, 0, 0, 0.28))
     drop-shadow(0 28px 42px rgba(0, 0, 0, 0.62))
     drop-shadow(0 0 2px rgba(255, 255, 255, 0.68));
   transform: rotate(-2deg);
@@ -664,6 +696,48 @@ img {
   text-transform: uppercase;
   text-shadow: 0 8px 0 rgba(255, 190, 190, 0.58);
   transform: rotate(-4deg);
+}
+
+.finale-support-image {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  z-index: 6;
+  width: min(85vw, 360px);
+  max-height: 69svh;
+  opacity: 0;
+  transform: translate(-50%, 100vh);
+  filter: drop-shadow(0 6px 16px rgba(36, 35, 35, 0.82));
+}
+
+.finale-major-image {
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  z-index: 7;
+  width: min(106vw, 380px);
+  max-height: 72svh;
+  object-fit: contain;
+  opacity: 0;
+  transform: translate(-50%, 100vh);
+  filter: drop-shadow(0 6px 16px rgba(36, 35, 35, 0.82));
+}
+
+.vote-poster.is-visible .finale-support-image,
+.vote-poster.is-visible .finale-major-image {
+  animation: finaleImageRise 900ms cubic-bezier(0.16, 0.9, 0.24, 1) both;
+}
+
+.vote-poster.is-visible .finale-main-logo {
+  animation: finaleLogoRise 900ms cubic-bezier(0.16, 0.9, 0.24, 1) both;
+}
+
+.vote-poster.is-visible .finale-support-image {
+  animation-delay: 140ms;
+}
+
+.vote-poster.is-visible .finale-major-image {
+  animation-delay: 280ms;
 }
 
 .vote-logo {
@@ -740,6 +814,28 @@ img {
   }
 }
 
+@keyframes finaleImageRise {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 100vh) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+@keyframes finaleLogoRise {
+  from {
+    opacity: 0;
+    transform: translateY(100vh) rotate(-2deg) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(-2deg) scale(1);
+  }
+}
+
 @keyframes wordIn {
   to {
     opacity: 1;
@@ -788,6 +884,15 @@ img {
   }
 }
 
+@keyframes blossomDrift {
+  from {
+    transform: translate3d(-10px, -8px, 0) rotate(-1deg);
+  }
+  to {
+    transform: translate3d(12px, 14px, 0) rotate(2deg);
+  }
+}
+
 @keyframes bounce {
   0%,
   100% {
@@ -800,11 +905,12 @@ img {
 
 @media (min-width: 761px) {
   .site-header-light {
-    padding: clamp(18px, 4vw, 34px);
+    padding: 14px 18px;
   }
 
   .logo {
-    width: clamp(94px, 12vw, 132px);
+    width: 38px;
+    min-height: 22px;
   }
 
   .hero-red-field {

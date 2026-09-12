@@ -228,6 +228,21 @@ export default function App() {
       manifestoObserver.observe(manifestoSection);
     }
 
+    const voteSection = document.getElementById("vote");
+    const voteObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          voteObserver.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.2 },
+    );
+
+    if (voteSection) {
+      voteObserver.observe(voteSection);
+    }
+
     const getCurrentIndex = () => {
       const middle = window.scrollY + window.innerHeight / 2;
       return snapTargets.findIndex((id) => {
@@ -342,6 +357,7 @@ export default function App() {
       window.removeEventListener("touchend", onTouchEnd);
       cardObserver.disconnect();
       manifestoObserver.disconnect();
+      voteObserver.disconnect();
     };
   }, []);
 
@@ -417,10 +433,14 @@ export default function App() {
         <div className="red-stage finale-stage" />
         <div className="poster-scrim finale-scrim" />
         <Header light />
+        <img className="finale-support-image" src="/srtimg.png" alt="" />
+        <img className="finale-major-image" src="/major(1).png" alt="" />
         <div className="finale-copy reveal">
           <img className="finale-main-logo" src="/gd.png" alt="SFI" />
-          <h2 class="margin-top=30px">SFI NEHRU</h2>
+          
+          
         </div>
+       
       </section>
     </main>
   );
