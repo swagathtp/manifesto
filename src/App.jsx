@@ -252,12 +252,10 @@ export default function App() {
       }, 780);
     };
 
-    const onWheel = (event) => {
-      if (locked || Math.abs(event.deltaY) < 18) return;
-
+    const navigateByDirection = (isDown, event) => {
+      if (locked) return;
       const currentIndex = getCurrentIndex();
       const currentId = snapTargets[currentIndex];
-      const isDown = event.deltaY > 0;
 
       if (currentId === "promises") {
         const promises = document.getElementById("promises");
@@ -278,14 +276,64 @@ export default function App() {
 
       const nextIndex = currentIndex + (isDown ? 1 : -1);
       if (nextIndex >= 0 && nextIndex < snapTargets.length) {
-        event.preventDefault();
+        if (event) event.preventDefault();
         scrollToSection(snapTargets[nextIndex]);
       }
     };
 
+    const onWheel = (event) => {
+      if (Math.abs(event.deltaY) < 18) return;
+      navigateByDirection(event.deltaY > 0, event);
+    };
+
+    let touchStartY = 0;
+    let touchTracking = false;
+
+    const onTouchStart = (event) => {
+      if (event.touches.length !== 1) return;
+      touchStartY = event.touches[0].clientY;
+      touchTracking = true;
+    };
+
+    const onTouchMove = (event) => {
+      if (!touchTracking || locked || event.touches.length !== 1) return;
+
+      const distance = touchStartY - event.touches[0].clientY;
+      if (Math.abs(distance) < 18) return;
+
+      const currentIndex = getCurrentIndex();
+      const currentId = snapTargets[currentIndex];
+      const promises = document.getElementById("promises");
+      const atPromisesBoundary = currentId === "promises" && promises && (
+        (distance > 0 && window.scrollY >= promises.offsetTop + promises.offsetHeight - window.innerHeight - 6) ||
+        (distance < 0 && window.scrollY <= promises.offsetTop + 6)
+      );
+
+      if (currentId !== "promises" || atPromisesBoundary) {
+        event.preventDefault();
+      }
+    };
+
+    const onTouchEnd = (event) => {
+      if (!touchTracking) return;
+      touchTracking = false;
+
+      const touch = event.changedTouches[0];
+      const distance = touchStartY - touch.clientY;
+      if (Math.abs(distance) >= 45) {
+        navigateByDirection(distance > 0, event);
+      }
+    };
+
     window.addEventListener("wheel", onWheel, { passive: false });
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchmove", onTouchMove, { passive: false });
+    window.addEventListener("touchend", onTouchEnd, { passive: false });
     return () => {
       window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("touchend", onTouchEnd);
       cardObserver.disconnect();
       manifestoObserver.disconnect();
     };
