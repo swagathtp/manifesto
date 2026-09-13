@@ -225,11 +225,11 @@ img {
 }
 
 .hero-copy h1 {
-  max-width: min(96vw, 62rem);
+  max-width: none;
   margin: clamp(10px, 2vh, 18px) 0 0;
   color: var(--white);
   font-family: "Arial Black", Impact, sans-serif;
-  font-size: clamp(3.4rem, 14vw, 8.3rem);
+  font-size: clamp(2.4rem, 12vw, 8.3rem);
   font-style: italic;
   line-height: 0.74;
   letter-spacing: 0;
@@ -238,6 +238,7 @@ img {
     0 5px 0 rgba(0, 0, 0, 0.42),
     0 22px 34px rgba(0, 0, 0, 0.82);
   transform: skewX(-8deg);
+  white-space: nowrap;
 }
 
 .intro-word {
