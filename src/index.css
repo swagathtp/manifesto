@@ -326,8 +326,8 @@ img {
   margin: clamp(12px, 2.2vh, 22px) 0 0;
   color: rgba(255, 250, 240, 0.52);
   font-family: "Arial Narrow", Arial, system-ui, sans-serif;
-  font-size: clamp(0.46rem, 2.2vw, 0.9rem);
-  font-weight: 700;
+  font-size: clamp(0.46rem, 1.2vw, 0.9rem);
+  /* font-weight: 700; */
   line-height: 1.12;
   text-transform: uppercase;
   text-shadow: 0 5px 16px rgba(0, 0, 0, 0.9);
