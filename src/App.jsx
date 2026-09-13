@@ -25,6 +25,11 @@ const candidate = {
   name: "SREESHNAV TR",
 };
 
+const committeeLine = `CHAIRMAN JITHINRAM N VICE CHAIRMAN DEVIKA T GEN SECRETARY
+SHIVAPRASAD PC JOINT SECRETARY SAHALA YASMIN P MAGAZINE EDITOR
+ABHIRAM L ANEESH FINE ARTS NEELINA SANTHOSH AV GEN CAPTAIN MIDHUN
+MANOJ UUCI KRISHNAJA T NADH UUC2 PRANAV K`;
+
 const manifestoPoints = [
   {
     id: "01",
@@ -364,7 +369,6 @@ export default function App() {
   return (
     <main className="manifesto-site">
       <section id="home" className="poster hero-poster dark-poster">
-        
         <ImageWithFallback
           src="/str1.jpg"
           alt={candidate.name}
@@ -375,13 +379,9 @@ export default function App() {
 
         <div className="hero-copy">
           <p className="kicker intro-pop">Computer Science Association</p>
-          <h1 className="text-black">
-          <span className="intro-word text-black">Association</span>
-          <span className="intro-word intro-word-late">Secretary</span>
-          </h1>
-          <span className="slash" />
-          <p className="hero-name intro-pop">{candidate.name}</p>
-          {/* <p className="hero-subtitle intro-pop"></p> */}
+          <p className="hero-role intro-pop">Association Secretary</p>
+          <h1 className="intro-pop">{candidate.name}</h1>
+          <p className="hero-committee intro-pop">{committeeLine}</p>
           <a
             className="scroll-cue intro-pop"
             href="#manifesto"
