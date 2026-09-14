@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import {
   Award,
+  Brain,
+  Briefcase,
   ChevronDown,
   Code2,
   Dice5,
@@ -9,6 +11,7 @@ import {
   Gamepad2,
   Lightbulb,
   Megaphone,
+  MessageCircle,
   Music,
   Network,
   Newspaper,
@@ -52,75 +55,96 @@ const manifestoPoints = [
     image: "/tech%20with%20teacher.png",
    
   },
-  {
+   {
     id: "04",
+    title: "Moke Interview",
+    icon: MessageCircle,
+    image: "/interview.png",
+   
+  },
+   {
+    id: "05",
+    title: "Internship Opportunities",
+    icon: Briefcase,
+    image: "/internship.png",
+   
+  },
+   {
+    id: "06",
+    title: "Aptitude Test",
+    icon: Brain,
+    image: "/aptitude%20test.png",
+   
+  },
+  {
+    id: "07",
     title: "Musical Eve",
     icon: Music,
     image: "/musical%20eve.png",
    
   },
   {
-    id: "05",
+    id: "08",
     title: "Football/Cricket Tournament",
     icon: SportShoe,
     image: "/fdball%20tounament.png",
    
   },
   {
-    id: "06",
+    id: "09",
     title: "Inaugural Event",
     icon: Rocket,
     image: "/inguaration.png",
    
   },{
-    id: "07",
+    id: "10",
     title: "Batminton Tournament",
     icon: SportShoe,
     image: "/batminton.png",
    
   },{
-    id: "08",
+    id: "11",
     title: "Connect with Alumni",
     icon: Network,
     image: "/connect%20with%20alumni.png",
    
   },{
-    id: "09",
+    id: "12",
     title: "Tech News",
     icon: Newspaper,
     image: "/tech%20news.png",
   },{
-    id: "10",
+    id: "13",
     title: "Hall Ticket Distribution",
     icon: Ticket,
     image: "/hallticket.png",
    
   },{
-    id: "11",
+    id: "14",
     title: "Online Game Tournament",
     icon: Gamepad2,
     image: "/online%20game.png",
   },
   {
-    id: "12",
+    id: "15",
     title: "Academic Excellence Awards",
     icon: Award,
     image: "/excellance%20awrd.png",
    
   },{
-    id: "13",
+    id: "16",
     title: "Indoor Games Fest",
     icon: Dice5,
     image: "/indoorgame.png",
   },
   {
-    id: "14",
+    id: "17",
     title: "Christmas Celebration and Ethnic Day",
     icon: PartyPopper,
     image: "/xmas.png",
    
   },{
-    id: "15",
+    id: "18",
     title: "Previous Year Question Paper Distribution",
     icon: FileText,
     image: "/pyq%20dirstribution.png",
@@ -370,7 +394,7 @@ export default function App() {
     <main className="manifesto-site">
       <section id="home" className="poster hero-poster dark-poster">
         <ImageWithFallback
-          src="/str1.jpg"
+          src="/str1.webp"
           alt={candidate.name}
           className="poster-image candidate-image"
         />

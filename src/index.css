@@ -49,10 +49,11 @@ img {
 }
 
 .manifesto-site {
-  width: min(100%, 1180px);
+  width: min(100%, 430px);
   margin: 0 auto;
   overflow: hidden;
   background: #060606;
+  box-shadow: 0 0 48px rgba(0, 0, 0, 0.45);
 }
 
 .poster,
@@ -936,7 +937,7 @@ img {
   }
 }
 
-@media (min-width: 761px) {
+@media (min-width: 2000px) {
   .site-header-light {
     padding: 14px 18px;
   }
@@ -1030,6 +1031,12 @@ img {
 
   .vote-logo {
     width: min(72vw, 410px);
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1999px) {
+  .hero-copy h1 {
+    font-size: clamp(2.4rem, 12vw, 3.3rem);
   }
 }
 
