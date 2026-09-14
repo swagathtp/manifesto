@@ -457,8 +457,8 @@ export default function App() {
         <div className="red-stage finale-stage" />
         <div className="poster-scrim finale-scrim" />
         <Header light />
-        <img className="finale-support-image" src="/srtimg.png" alt="" />
-        <img className="finale-major-image" src="/major(1).png" alt="" />
+        <img className="finale-support-image" src="/srtimg.webp" alt="" />
+        <img className="finale-major-image" src="/major(1).webp" alt="" />
         <div className="finale-copy reveal">
           <img className="finale-main-logo" src="/gd.png" alt="SFI" />
           
