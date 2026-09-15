@@ -734,7 +734,7 @@ img {
 
 .finale-support-image {
   position: absolute;
-  top: 18%;
+  bottom: 18%;
   left: 50%;
   z-index: 6;
   width: min(85vw, 360px);
@@ -746,15 +746,17 @@ img {
 
 .finale-major-image {
   position: absolute;
-  top: 36%;
   left: 50%;
   z-index: 7;
-  width: min(106vw, 380px);
-  max-height: 72svh;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  max-height: none;
   object-fit: contain;
   opacity: 0;
   transform: translate(-50%, 100vh);
   filter: drop-shadow(0 6px 16px rgba(36, 35, 35, 0.82));
+  bottom: 0;
 }
 
 .vote-poster.is-visible .finale-support-image,
