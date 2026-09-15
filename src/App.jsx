@@ -36,115 +36,108 @@ MANOJ UUCI KRISHNAJA T NADH UUC2 PRANAV K`;
 const manifestoPoints = [
   {
     id: "01",
-    title: "Mini Hackathon",
-    icon: Code2,
-    image: "/mini%20hackthon.png",
-   
-  },
-  {
-    id: "02",
     title: "Web Development Workshop",
     icon: Presentation,
     image: "/web%20dev.png",
    
   },
   {
-    id: "03",
+    id: "02",
     title: " Tech with Teachers",
     icon: Megaphone,
     image: "/tech%20with%20teacher.png",
    
   },
    {
-    id: "04",
+    id: "03",
     title: "Moke Interview",
     icon: MessageCircle,
     image: "/interview.png",
    
   },
    {
-    id: "05",
+    id: "04",
     title: "Internship Opportunities",
     icon: Briefcase,
     image: "/internship.png",
    
   },
    {
-    id: "06",
+    id: "05",
     title: "Aptitude Test",
     icon: Brain,
     image: "/aptitude%20test.png",
    
   },
   {
-    id: "07",
+    id: "06",
     title: "Musical Eve",
     icon: Music,
     image: "/musical%20eve.png",
    
   },
   {
-    id: "08",
+    id: "07",
     title: "Football/Cricket Tournament",
     icon: SportShoe,
     image: "/fdball%20tounament.png",
    
   },
   {
-    id: "09",
+    id: "08",
     title: "Inaugural Event",
     icon: Rocket,
     image: "/inguaration.png",
    
   },{
-    id: "10",
+    id: "09",
     title: "Batminton Tournament",
     icon: SportShoe,
     image: "/batminton.png",
    
   },{
-    id: "11",
+    id: "10",
     title: "Connect with Alumni",
     icon: Network,
     image: "/connect%20with%20alumni.png",
    
   },{
-    id: "12",
+    id: "11",
     title: "Tech News",
     icon: Newspaper,
     image: "/tech%20news.png",
   },{
-    id: "13",
+    id: "12",
     title: "Hall Ticket Distribution",
     icon: Ticket,
     image: "/hallticket.png",
    
   },{
-    id: "14",
+    id: "13",
     title: "Online Game Tournament",
     icon: Gamepad2,
     image: "/online%20game.png",
   },
   {
-    id: "15",
+    id: "14",
     title: "Academic Excellence Awards",
     icon: Award,
     image: "/excellance%20awrd.png",
    
   },{
-    id: "16",
+    id: "15",
     title: "Indoor Games Fest",
     icon: Dice5,
     image: "/indoorgame.png",
   },
   {
-    id: "17",
+    id: "16",
     title: "Christmas Celebration and Ethnic Day",
     icon: PartyPopper,
     image: "/xmas.png",
    
   },{
-    id: "18",
+    id: "17",
     title: "Previous Year Question Paper Distribution",
     icon: FileText,
     image: "/pyq%20dirstribution.png",
