@@ -91,7 +91,7 @@ const manifestoPoints = [
    
   },{
     id: "09",
-    title: "Batminton Tournament",
+    title: "Badminton Tournament",
     icon: SportShoe,
     image: "/batminton.png",
    
