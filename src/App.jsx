@@ -50,7 +50,7 @@ const manifestoPoints = [
   },
    {
     id: "03",
-    title: "Moke Interview",
+    title: "Mock Interview",
     icon: MessageCircle,
     image: "/interview.png",
    
